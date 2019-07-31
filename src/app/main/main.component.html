@@ -1,0 +1,108 @@
+<div fxLayout="row" class="container">
+  <section class="main" fxLayout="row">
+    <div class="main-content" fxLayout="column">
+      <section class="add-input-box">
+        <input placeholder="add a new mission…" />
+        <button class="btn">
+          <i class="material-icons">add</i>
+        </button>
+      </section>
+
+      <section class="main-item" fxLayout="row">
+        <div class="checkbox" fxFlex="48px"></div>
+        <div class="title" fxFlex="100%" fxLayout="column">
+          <div class="title-text">the First thing to do today</div>
+          <div class="title-circle"></div>
+        </div>
+      </section>
+
+      <section class="timer">
+        25:00
+      </section>
+
+      <section fxFlex="100%">&nbsp;</section>
+
+      <section class="rest-items">
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
+        </div>
+
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
+        </div>
+
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
+        </div>
+
+        <div class="more" fxLayout="row-reverse">
+          <div>
+            MORE
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section fxFlex="100%"></section>
+
+  <section fxFlex="450px" fxLayout="row" class="sidebar">
+    <div fxFlex="100%"></div>
+
+    <div class="sidebar-content" fxLayout="column" >
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn" [routerLink]="['/settings/todo-list']">
+          <i class="material-icons">list</i>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn">
+          <i class="material-icons">assessment</i>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn">
+          <i class="material-icons">library_music</i>
+        </button>
+      </div>
+
+      <div fxFlex="100%"></div>
+
+      <div class="sidebar-logo">POMODORO</div>
+    </div>
+  </section>
+</div>
+
+<div class="clock">
+  <svg class="clock-rotate">
+    <circle cx="272" cy="272" r="270" stroke="#FF4384" stroke-width="4" fill="transparent" />
+    <path fill="#FF4384" [attr.d]="svgPathDefine" />
+  </svg>
+
+  <div class="clock-mask">
+    <div class="clock-control-play">
+      <button class="btn">
+        <i class="material-icons">pause_circle_filled</i>
+      </button>
+    </div>
+    <div class="clock-control-stop">
+      <button class="btn">
+        <i class="material-icons">stop</i>
+      </button>
+    </div>
+  </div>
+</div>

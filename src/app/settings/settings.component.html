@@ -1,0 +1,128 @@
+<div class="container" fxLayout="row">
+  <!-- <section class="sidebar" fxFlex="560px">
+    <div class="sidebar-content" fxLayout="column">
+      <div class="menu-item" fxLayoutAlign="start" routerLinkActive="active">
+        <button class="btn" [routerLink]="['/settings/todo-list']" fxLayout="row">
+          <i class="material-icons">list</i>
+          <span>to-to list</span>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="start" routerLinkActive="active">
+        <button class="btn" [routerLink]="['/settings/analytics']" fxLayout="row">
+          <i class="material-icons">assessment</i>
+          <span>analytics</span>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="start" routerLinkActive="active">
+        <button class="btn" [routerLink]="['/settings/ringtones']" fxLayout="row">
+          <i class="material-icons">library_music</i>
+          <span>ringtones</span>
+        </button>
+      </div>
+
+      <div fxFlex="100%"></div>
+
+      <div class="footer">
+        <div class="button">
+          <button>
+            <i class="material-icons">play_arrow</i>
+          </button>
+        </div>
+        <div class="content" fxLayout="column" fxFlexAlign="center center">
+          <div fxFlex="100%"></div>
+
+          <div class="count-down">
+            25:00
+          </div>
+
+          <div class="current-item">
+            the First thing to do today
+          </div>
+
+          <div fxFlex="24px"></div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="todo-list" fxFlex="100%">
+    <div class="todo-list-content">
+      <section class="add-input-box">
+        <input placeholder="add a new mission…" #todoText (keyup.enter)="addTodo(todoText)" [disabled]="isOffline$ | async"/>
+        <button class="btn">
+          <i class="material-icons" (click)="addTodo(todoText)">add</i>
+        </button>
+      </section>
+
+      <section class="todo-list-items">
+        <div class="header" fxLayout="row">
+          <span class="title" fxFlex="100%">to-to</span>
+          <span class="toggle">
+            <i class="material-icons">arrow_drop_up</i>
+          </span>
+          <span fxFlex="16px"></span>
+        </div>
+
+        <div class="items">
+          <div class="item" fxLayout="row" *ngFor="let item of doingItems$ | async">
+            <span class="btn item-radio" (click)="toggleTodo(item)">
+              <i class="material-icons">radio_button_unchecked</i>
+            </span>
+
+            <span class="item-text" fxFlex="100%">
+              {{ item.name }}
+            </span>
+
+            <span class="item-play">
+              <i class="material-icons">play_circle_outline</i>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="todo-list-items">
+        <div class="header" fxLayout="row">
+          <span class="title" fxFlex="100%">done</span>
+          <span class="toggle">
+            <i class="material-icons">arrow_drop_up</i>
+          </span>
+          <span fxFlex="16px"></span>
+        </div>
+
+        <div class="items">
+          <div class="item" fxLayout="row" *ngFor="let item of doneItems$ | async; trackBy: trackByFn">
+            <span class="item-radio">
+              <i class="material-icons">radio_button_checked</i>
+            </span>
+
+            <span class="item-text done" fxFlex="100%">
+              {{ item.name }}
+            </span>
+
+            <span class="item-play" *ngFor="let _ of repeat(item.pomodoros)">
+              <i class="material-icons">lens</i>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- <section fxFlex="275px" fxLayout="row" class="sidebar right">
+    <div fxFlex="100%"></div>
+
+    <div class="sidebar-content" fxLayout="column">
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn" [routerLink]="['/']">
+          <i class="material-icons">clear</i>
+        </button>
+      </div>
+
+      <div fxFlex="100%"></div>
+
+      <div class="sidebar-logo">POMODORO</div>
+    </div>
+  </section> -->
+</div>
